@@ -3,6 +3,8 @@ package courses;
 import model.Moving;
 import model.Person;
 
+import java.util.function.Predicate;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -23,6 +25,18 @@ public class Main {
         };
         humanRunning.running();
 
+
+
+        Predicate<String> somePredicate = new Predicate<String>() {
+            @Override
+            public boolean test(String string) {
+                return !string.isEmpty();
+            }
+        };
+        System.out.println("Anonymous: " + somePredicate.test("Something"));
+
+        Predicate<String> nonEmptyStringPredicate = (String s) -> !s.isEmpty();
+        System.out.println("Lambda: " + nonEmptyStringPredicate.test(""));
 
     }
 
